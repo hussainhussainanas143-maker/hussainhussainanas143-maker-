@@ -1,9 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<html>
-  <head>
-    <title>Anas</title>
-    
-  </head>
-  <body>
-    <h1> Hello world</h1>
-  </body>
+    <title>Anas Hussain | Portfolio</title>
+
+    <style>
+        /* =========================
+           GLOBAL STYLES
+        ========================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f1de;
+            color: #111;
+            line-height: 1.5;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================== */
+
+        header {
+            border-bottom: 5px solid #111;
+            background: #ff4d00;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 900;
+            letter-spacing: -2px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            font-weight: 800;
+        }
+
+        nav li:hover {
+            text-decoration: underline;
+        }
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+            max-width: 1200px;
+            margin: auto;
+            min-height: 85vh;
+            padding: 80px 20px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(60px, 10vw, 140px);
+            line-height: 0.85;
+            font-weight: 900;
+            letter-spacing: -8px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 span {
+            color: #ff4d00;
+            -webkit-text-stroke: 3px #111;
+        }
+
+        .hero-text {
+            font-size: 22px;
+            font-weight: 700;
+            margin-top: 35px;
+            max-width: 700px;
+        }
+
+        .hero-box {
+            border: 5px solid #111;
+            background: #ffe600;
+            padding: 30px;
+            box-shadow: 12px 12px 0 #111;
+            transform: rotate(2deg);
+        }
+
+        .hero-box h2 {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .hero-box p {
+            font-weight: 700;
+        }
+
+        /* =========================
+           BUTTONS
+        ========================== */
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 25px;
+            border: 4px solid #111;
+            background: white;
+            font-weight: 900;
+            box-shadow: 6px 6px 0 #111;
+            transition: 0.15s;
+        }
+
+        .btn:hover {
+            transform: translate(5px, 5px);
+            box-shadow: 1px 1px 0 #111;
+        }
+
+        .btn-orange {
+            background: #ff4d00;
+        }
+
+        /* =========================
+           SECTION
+        ========================== */
+
+        section {
+            max-width: 1200px;
+            margin: auto;
+            padding: 90px 20px;
+        }
+
+        .section-title {
+            font-size: clamp(45px, 8vw, 90px);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -5px;
+            margin-bottom: 45px;
+        }
+
+        /* =========================
+           ABOUT
+        ========================== */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .card {
+            border: 5px solid #111;
+            padding: 30px;
+            background: white;
+            box-shadow: 10px 10px 0 #111;
+        }
+
+        .card h3 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .yellow {
+            background: #ffe600;
+        }
+
+        .pink {
+            background: #ff69b4;
+        }
+
+        /* =========================
+           SKILLS
+        ========================== */
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .skill {
+            padding: 15px 22px;
+            border: 4px solid #111;
+            background: #fff;
+            font-size: 20px;
+            font-weight: 900;
+            box-shadow: 5px 5px 0 #111;
+        }
+
+        .skill:nth-child(2n) {
+            background: #00e5ff;
+        }
+
+        .skill:nth-child(3n) {
+            background: #ffe600;
+        }
+
+        /* =========================
+           PROJECTS
+        ========================== */
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .project {
+            border: 5px solid #111;
+            background: white;
+            padding: 25px;
+            box-shadow: 10px 10px 0 #111;
+        }
+
+        .project-number {
+            font-size: 20px;
+            font-weight: 900;
+            background: #111;
+            color: white;
+            display: inline-block;
+            padding: 5px 10px;
+            margin-bottom: 20px;
+        }
+
+        .project h3 {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .project p {
+            font-size: 17px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .project a {
+            font-weight: 900;
+            text-decoration: underline;
+        }
+
+        /* =========================
+           EDUCATION
+        ========================== */
+
+        .education {
+            border: 5px solid #111;
+            background: #00e5ff;
+            padding: 35px;
+            box-shadow: 12px 12px 0 #111;
+        }
+
+        .education h3 {
+            font-size: 40px;
+        }
+
+        .education p {
+            font-size: 20px;
+            font-weight: 700;
+            margin-top: 10px;
+        }
+
+        /* =========================
+           CONTACT
+        ========================== */
+
+        .contact {
+            background: #ff4d00;
+            border-top: 5px solid #111;
+            border-bottom: 5px solid #111;
+        }
+
+        .contact-box {
+            max-width: 1200px;
+            margin: auto;
+            padding: 90px 20px;
+        }
+
+        .contact h2 {
+            font-size: clamp(50px, 9vw, 110px);
+            line-height: 0.9;
+            letter-spacing: -5px;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        .contact p {
+            font-size: 22px;
+            font-weight: 700;
+            margin: 30px 0;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            background: #111;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            font-weight: 800;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================== */
+
+        @media (max-width: 800px) {
+
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                padding-top: 60px;
+            }
+
+            .hero h1 {
+                letter-spacing: -5px;
+            }
+
+            .about-grid,
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-box {
+                transform: none;
+            }
+
+            section {
+                padding: 60px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
+    <header>
+        <nav>
+            <div class="logo">ANAS.DEV</div>
+
+            <ul>
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#skills">SKILLS</a></li>
+                <li><a href="#projects">PROJECTS</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <main>
+
+        <div class="hero">
+
+            <div>
+                <h1>
+                    HI,<br>
+                    I'M <span>ANAS</span>
+                </h1>
+
+                <p class="hero-text">
+                    B.Tech student, developer and curious human
+                    who enjoys building things with code.
+                </p>
+
+                <div class="buttons">
+                    <a href="#projects" class="btn btn-orange">
+                        VIEW MY WORK →
+                    </a>
+
+                    <a href="#contact" class="btn">
+                        CONTACT ME
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-box">
+                <h2>01</h2>
+
+                <p>
+                    CURRENTLY LEARNING:
+                </p>
+
+                <br>
+
+                <p>
+                    HTML / CSS<br>
+                    JavaScript<br>
+                    Python<br>
+                    Data Structures<br>
+                    Web Development
+                </p>
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             ABOUT
+        ========================== -->
+
+        <section id="about">
+
+            <h2 class="section-title">ABOUT ME</h2>
+
+            <div class="about-grid">
+
+                <div class="card yellow">
+                    <h3>WHO AM I?</h3>
+
+                    <p>
+                        I'm Anas Hussain, a B.Tech student interested
+                        in programming, web development and technology.
+                        I like learning by actually building things.
+                    </p>
+                </div>
+
+                <div class="card pink">
+                    <h3>MY APPROACH</h3>
+
+                    <p>
+                        Learn → Build → Break → Fix → Repeat.
+                        I believe the best way to understand
+                        programming is to experiment with it.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             SKILLS
+        ========================== -->
+
+        <section id="skills">
+
+            <h2 class="section-title">SKILLS</h2>
+
+            <div class="skills">
+
+                <div class="skill">HTML</div>
+                <div class="skill">CSS</div>
+                <div class="skill">PYTHON</div>
+                <div class="skill">C</div>
+                <div class="skill">JAVASCRIPT</div>
+                <div class="skill">DATA STRUCTURES</div>
+                <div class="skill">GIT</div>
+                <div class="skill">GITHUB</div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             PROJECTS
+        ========================== -->
+
+        <section id="projects">
+
+            <h2 class="section-title">PROJECTS</h2>
+
+            <div class="projects">
+
+                <div class="project">
+
+                    <div class="project-number">
+                        PROJECT 01
+                    </div>
+
+                    <h3>TIME TABLE</h3>
+
+                    <p>
+                        A simple web-based timetable interface
+                        designed to organize classes and schedules.
+                    </p>
+
+                    <a href="#">
+                        VIEW PROJECT →
+                    </a>
+
+                </div>
+
+
+                <div class="project">
+
+                    <div class="project-number">
+                        PROJECT 02
+                    </div>
+
+                    <h3>PORTFOLIO</h3>
+
+                    <p>
+                        A brutalist personal portfolio created
+                        using only HTML and CSS.
+                    </p>
+
+                    <a href="#">
+                        VIEW PROJECT →
+                    </a>
+
+                </div>
+
+
+                <div class="project">
+
+                    <div class="project-number">
+                        PROJECT 03
+                    </div>
+
+                    <h3>PYTHON PROJECT</h3>
+
+                    <p>
+                        A collection of Python programs created
+                        while learning programming fundamentals.
+                    </p>
+
+                    <a href="#">
+                        VIEW PROJECT →
+                    </a>
+
+                </div>
+
+
+                <div class="project">
+
+                    <div class="project-number">
+                        PROJECT 04
+                    </div>
+
+                    <h3>DSA PROJECT</h3>
+
+                    <p>
+                        Data structure implementations including
+                        linked lists, stacks, queues and trees.
+                    </p>
+
+                    <a href="#">
+                        VIEW PROJECT →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             EDUCATION
+        ========================== -->
+
+        <section>
+
+            <h2 class="section-title">EDUCATION</h2>
+
+            <div class="education">
+
+                <h3>B.TECH — COMPUTER SCIENCE</h3>
+
+                <p>
+                    Sai University, Chennai
+                </p>
+
+                <p>
+                    School of Computing and Data Science
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         CONTACT
+    ========================== -->
+
+    <div class="contact" id="contact">
+
+        <div class="contact-box">
+
+            <h2>
+                LET'S<br>
+                BUILD<br>
+                SOMETHING.
+            </h2>
+
+            <p>
+                Have an idea? Let's turn it into something real.
+            </p>
+
+            <div class="contact-links">
+
+                <a class="btn" href="mailto:yourmail@example.com">
+                    EMAIL ME
+                </a>
+
+                <a class="btn" href="https://github.com/" target="_blank">
+                    GITHUB ↗
+                </a>
+
+                <a class="btn" href="https://www.linkedin.com/" target="_blank">
+                    LINKEDIN ↗
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+        © 2026 ANAS HUSSAIN — BUILT WITH HTML + CSS
+    </footer>
+
+</body>
+</html>
